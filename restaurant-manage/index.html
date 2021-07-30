@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>餐厅经营小游戏</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <div class="weekend">
+                <span id="weekend">W1</span>
+                <span id="day">D1</span>
+            </div>
+            <div class="cash">
+                <span class="income" id="income">500</span>
+            </div>
+        </div>
+        <div class="cook" id="cook">
+            <div class="chef">
+                <div class="chef-icon">
+                    <img src="./resources/cooker.png">
+                </div>
+            </div>
+            <div class="chef" id="chef_1">
+                <div class="chef-icon">
+                    <img src="./resources/cooker.png">
+                </div>
+                <div class="fireCooker" style="display:none;">
+                    X
+                </div>
+            </div>
+            <div class="chef" id="add-chef">
+                <div class="add-chef-icon" id="add-chef-icon">
+                    <img src="./resources/no-chef.png">
+                </div>
+            </div>
+        </div>
+        <div class="table">
+            <div class="table-firstRow">
+                <div class="table-firstRow-left" id="table-firstRow-left">
+                    <div></div>
+                </div>
+                <div class="table-firstRow-right" id="table-firstRow-right">
+                    <div></div>
+                </div>
+            </div>
+            <div class="table-secondRow">
+                <div class="table-secondRow-left" id="table-secondRow-left">
+                    <div></div>
+                </div>
+                <div class="table-secondRow-right" id="table-secondRow-right">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="wait-box" id="wait-box">
+        </div>
+    </div>
+    <!--菜单-->
+    <div class="menu_wrapper" id="menu">
+        <div class="menu">
+            <h2 id="menu_title" class="title">QIAN正在点菜，已点0元的菜</h2>
+            <div class="cus_waiting customer" id="menu_avatar">
+                <img id="menu_pic" src="./resources/customer1.png">
+            </div>
+            <div class="form">
+                <form id="menu_form">
+                    <h3>凉菜（二选一，可不点）</h3>
+                    <div class="menu_item">
+                        <div><input type="checkbox" value="6" name="menu" /><span>凉拌SAN</span></div>
+                        <div>···························<span>￥6</span></div>
+                    </div>
+                    <div class="menu_item">
+                        <div><input type="checkbox" value="4" name="menu" /><span>冷切DOM</span></div>
+                        <div>···························<span>￥4</span></div>
+                    </div>
+                    <h3>主菜（五选一，必点）</h3>
+                    <div class="menu_item">
+                        <div><input type="checkbox" value="12" name="menu" /><span>UL抄LI</span></div>
+                        <div>···························<span>￥12</span></div>
+                    </div>
+                    <div class="menu_item">
+                        <div><input type="checkbox" value="15" name="menu" /><span>红烧HEAD</span></div>
+                        <div>···························<span>￥15</span></div>
+                    </div>
+                    <div class="menu_item">
+                        <div><input type="checkbox" value="18" name="menu" /><span>酥炸Table</span></div>
+                        <div>···························<span>￥18</span></div>
+                    </div>
+                    <div class="menu_item">
+                        <div><input type="checkbox" value="16" name="menu" /><span>炙烤CSS</span></div>
+                        <div>···························<span>￥16</span></div>
+                    </div>
+                    <div class="menu_item">
+                        <div><input type="checkbox" value="12" name="menu" /><span>清蒸DIV</span></div>
+                        <div>···························<span>￥12</span></div>
+                    </div>
+                    <h3>饮品（二选一，可不点）</h3>
+                    <div class="menu_item">
+                        <div><input type="checkbox" value="5" name="menu" /><span>鲜榨flex</span></div>
+                        <div>···························<span>￥5</span></div>
+                    </div>
+                    <div class="menu_item">
+                        <div><input type="checkbox" value="6" name="menu" /><span>小程序奶茶</span></div>
+                        <div>···························<span>￥6</span></div>
+                    </div>
+                </form>
+            </div>
+            <div class="bar">
+                <div class="cannot" id="order">点好了，快点上菜</div>
+                <div id="quit">不吃了</div>
+            </div>
+        </div>
+    </div>
+    <!-- 欢迎窗口-->
+    <div class="welcome open" id="welcome">
+        <div class="message">
+            <h1>WebMOOC餐厅开业啦！</h1>
+            <p class="p1">
+                WebMOOC餐厅即将开业，请认真经营你的餐厅吧，经营餐厅需要做好下面几件事情！加油！
+            </p>
+            <p class="p2">
+                <span>招聘厨师</span>
+                <span>迎接客人</span>
+                <span>烹饪美食</span>
+            </p>
+            <div class="start" id="start">
+                <p>开始经营吧</p>
+            </div>
+        </div>
+    </div>
+    <!--招聘厨师窗口-->
+    <div class="welcome" id="addChef" style="display: none;">
+        <div class="message">
+            <h1 class="advertise">招聘新厨师</h1>
+            <p class="p1">
+                招聘一名新厨师可以帮你更快地为顾客烹饪菜肴，<br> 增加餐厅收入。你最多可以拥有六名厨师。<br> 但每个厨师每周需要你支付工资 ￥100，<br> 请问你确认新招聘一名厨师吗？
+                <br>
+            </p>
+            <div class="bar">
+                <div id="yes-btn">是的，确认招聘</div>
+                <div id="no-btn">先不了</div>
+            </div>
+        </div>
+    </div>
+    <!--解雇厨师窗口-->
+    <div class="welcome02" style="display: none" id="fire">
+        <div class="message">
+            <h1 class="fire">解雇厨师</h1>
+            <p class="p1">
+                解雇当前闲置的厨师可以帮你节省成本。<br> 解雇时会按照厨师本周已经工作的日子结算工资，
+                <br> 并会赔偿一周工资作为解约金。
+                <br> 解雇当前厨师结算工资及解约金需要付出 ￥140<br>
+            </p>
+            <div class="bar">
+                <div id="sure-fire-btn">是的，确认解雇</div>
+                <div id="not-fire-btn">先不了</div>
+            </div>
+        </div>
+    </div>
+    <div class="center_alert" id="center_alert">
+        <p id="center_alert_p">餐厅目前有空位，赶紧点击等位客人头像让客人入座点餐吧</p>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>
